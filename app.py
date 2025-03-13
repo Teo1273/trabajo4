@@ -1,9 +1,15 @@
 import streamlit as st
+from streamlit_lottie import st_lottie
 from textblob import TextBlob
 from googletrans import Translator
+import json
 
 translator = Translator()
 st.title('Uso de textblob')
+
+with open('graficos.json') as source:
+  animation=json.load(source)
+st.lottie(animation,width =350)  
 
 st.subheader("Por favor escribe en el campo de texto la frase que deseas analizar")
 with st.sidebar:
